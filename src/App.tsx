@@ -20,7 +20,8 @@ import { Login } from "pages/login";
 import { CredentialResponse } from "interfaces/google";
 import { parseJwt } from "utils/parse-jwt";
 import { AccountCircleOutlined, ChatBubbleOutline, PeopleAltOutlined, StarOutlineRounded, VillaOutlined } from "@mui/icons-material";
-import { Home } from "pages";
+import { AgentProfile, Agents, AllProperties, CreateProperty, EditProperty, Home, MyProfile, PropertyDetails } from "pages";
+import home from "pages/home";
 
 const axiosInstance = axios.create();
 axiosInstance.interceptors.request.use((request: AxiosRequestConfig) => {
@@ -101,22 +102,26 @@ function App() {
           resources={[
             {
               name: "property",
-              list: MuiInferencer,
+              list: AllProperties,
+              show: PropertyDetails,
+              create: CreateProperty,
+              edit: EditProperty,
               icon: <VillaOutlined/>
             },
             {
               name: "agent",
-              list: MuiInferencer,
+              list: Agents,
+              show: AgentProfile,
               icon: <PeopleAltOutlined/>
             },
             {
               name: "review",
-              list: MuiInferencer,
+              list: home,
               icon: <StarOutlineRounded/>
             },
             {
               name: "message",
-              list: MuiInferencer,
+              list: home,
               icon: <ChatBubbleOutline/>
             },
             {
@@ -124,7 +129,7 @@ function App() {
               options: {
                 label: 'My Profile'
               },
-              list: MuiInferencer,
+              list: MyProfile,
               icon: <AccountCircleOutlined/>
             },
           ]}

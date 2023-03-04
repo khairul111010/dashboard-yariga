@@ -37,6 +37,8 @@ const home = () => {
         <TotalRevenue/>
         <PropertyReferrals/>
       </Stack>
+
+      
     </Box>
   )
 }
